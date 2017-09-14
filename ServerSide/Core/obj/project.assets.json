@@ -2409,11 +2409,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Core\\Core.csproj",
+      "projectUniqueName": "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Core\\Core.csproj",
+      "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\tgowarzewski\\.nuget\\packages\\",
-      "outputPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Core\\obj\\",
+      "outputPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

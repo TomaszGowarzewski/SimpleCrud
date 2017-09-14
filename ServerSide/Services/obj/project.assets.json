@@ -3787,11 +3787,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Services\\Services.csproj",
+      "projectUniqueName": "c:\\Repo\\SimpleCrud\\ServerSide\\Services\\Services.csproj",
       "projectName": "Services",
-      "projectPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Services\\Services.csproj",
+      "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Services\\Services.csproj",
       "packagesPath": "C:\\Users\\tgowarzewski\\.nuget\\packages\\",
-      "outputPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Services\\obj\\",
+      "outputPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3809,8 +3809,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Core\\Core.csproj": {
-              "projectPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Core\\Core.csproj"
+            "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj": {
+              "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj"
             }
           }
         }

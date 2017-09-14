@@ -12707,11 +12707,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\API\\API.csproj",
+      "projectUniqueName": "c:\\Repo\\SimpleCrud\\ServerSide\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\API\\API.csproj",
+      "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\API\\API.csproj",
       "packagesPath": "C:\\Users\\tgowarzewski\\.nuget\\packages\\",
-      "outputPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\API\\obj\\",
+      "outputPath": "c:\\Repo\\SimpleCrud\\ServerSide\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12729,11 +12729,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Services\\Services.csproj": {
-              "projectPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Services\\Services.csproj"
+            "c:\\Repo\\SimpleCrud\\ServerSide\\Services\\Services.csproj": {
+              "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Services\\Services.csproj"
             },
-            "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Core\\Core.csproj": {
-              "projectPath": "C:\\Ebooks\\SimpleCRUDApplication\\ServerSide\\Core\\Core.csproj"
+            "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj": {
+              "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj"
             }
           }
         }
