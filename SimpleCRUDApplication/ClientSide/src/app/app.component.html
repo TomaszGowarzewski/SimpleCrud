@@ -1,0 +1,30 @@
+<td-layout [mode]="side" [opened]="true">
+  <td-navigation-drawer sidenavTitle="Simple Data" icon="ligature" name={{name}} email={{email}}>
+    <md-nav-list>
+      <a routerLink ="/home" routerLinkActive="Active" md-list-item>
+        <md-icon>home</md-icon>Home</a>
+      <a routerLink ="/employees" routerLinkActive="Active" md-list-item>
+        <md-icon>list</md-icon>Table</a>
+        <a routerLink ="/todo" routerLinkActive="Active" md-list-item>
+          <md-icon>dashboard</md-icon>Todo</a>
+    </md-nav-list>
+    <div td-navigation-drawer-menu>
+      <md-nav-list>
+        <a  md-list-item>
+          <md-icon>account_box</md-icon>Profile</a>
+        <a md-list-item>
+          <md-icon>settings</md-icon>Settings</a>
+        <a routerLink ="/logout" routerLinkActive="Active"  md-list-item>
+          <md-icon>exit_to_app</md-icon>Logout</a>
+      </md-nav-list>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav toolbarTitle="MyAapp" color="accent">
+    <div td-toolbar-content>
+      <button md-icon-button td-menu-button tdLayoutToggle>
+              <md-icon>menu</md-icon>
+            </button>
+    </div>
+    <router-outlet></router-outlet>
+  </td-layout-nav>
+</td-layout>
