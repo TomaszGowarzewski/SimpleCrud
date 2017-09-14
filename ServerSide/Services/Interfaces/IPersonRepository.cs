@@ -15,6 +15,7 @@ namespace Services.Interfaces
         void DeletePerson(Person person);
         void DeletePersonById(string id);
         void DeletePersonByEmail(string email);
+        void AddPeopleToJson();
         void DeletePersonAt(int id);
         void AddPeopleToMemDb();
     }

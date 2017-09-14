@@ -12692,6 +12692,7 @@
       "Microsoft.AspNetCore.All >= 2.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 2.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 2.0.0",
+      "Microsoft.EntityFrameworkCore >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 1.0.0",
@@ -12707,11 +12708,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Repo\\SimpleCrud\\ServerSide\\API\\API.csproj",
+      "projectUniqueName": "C:\\Repo\\SimpleCrud\\ServerSide\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\API\\API.csproj",
+      "projectPath": "C:\\Repo\\SimpleCrud\\ServerSide\\API\\API.csproj",
       "packagesPath": "C:\\Users\\tgowarzewski\\.nuget\\packages\\",
-      "outputPath": "c:\\Repo\\SimpleCrud\\ServerSide\\API\\obj\\",
+      "outputPath": "C:\\Repo\\SimpleCrud\\ServerSide\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12729,11 +12730,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "c:\\Repo\\SimpleCrud\\ServerSide\\Services\\Services.csproj": {
-              "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Services\\Services.csproj"
+            "C:\\Repo\\SimpleCrud\\ServerSide\\Services\\Services.csproj": {
+              "projectPath": "C:\\Repo\\SimpleCrud\\ServerSide\\Services\\Services.csproj"
             },
-            "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj": {
-              "projectPath": "c:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj"
+            "C:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj": {
+              "projectPath": "C:\\Repo\\SimpleCrud\\ServerSide\\Core\\Core.csproj"
             }
           }
         }
@@ -12765,6 +12766,10 @@
             "version": "2.0.0"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "2.0.0"
           },

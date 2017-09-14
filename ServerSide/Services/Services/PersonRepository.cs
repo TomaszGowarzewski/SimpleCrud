@@ -15,7 +15,7 @@ namespace Services.Services
         private PersonDbContext personContext;
         private IJsonLoader loader;
 
-        public PersonRepository(IJsonLoader loader,PersonDbContext personContext)
+        public PersonRepository(IJsonLoader loader, PersonDbContext personContext)
         {
             if (loader == null)
             {
@@ -41,44 +41,44 @@ namespace Services.Services
         }
         public void DeletePersonByEmail(string email)
         {
-            this.personContext.Remove(this.personContext.People.SingleOrDefault(x=>x.Email == email));
+            this.personContext.Remove(this.personContext.People.SingleOrDefault(x => x.Email == email));
             this.personContext.SaveChanges();
         }
 
         public void DeletePersonById(string id)
         {
-            this.personContext.Remove(this.personContext.People.SingleOrDefault(x=>x.id == id));
+            this.personContext.Remove(this.personContext.People.SingleOrDefault(x => x.id == id));
             this.personContext.SaveChanges();
         }
 
         public Person GetPersonByEmail(string email)
         {
-            return this.personContext.People.SingleOrDefault(x=>x.Email == email);
+            return this.personContext.People.SingleOrDefault(x => x.Email == email);
         }
 
         public Person GetPersonById(string id)
         {
-            return this.personContext.People.SingleOrDefault(x=>x.id == id);
+            return this.personContext.People.SingleOrDefault(x => x.id == id);
         }
 
         public IEnumerable<Person> GetPeople()
         {
-            return personContext.People.Include(x=>x.accessibilities).Include(z=>z.Addresses).Include(z=>z.roles).ToList();
+            return personContext.People.Include(x => x.accessibilities).Include(z => z.Addresses).Include(z => z.roles).ToList();
         }
 
         public IEnumerable<Person> GetPeopleByLastName(string LastName)
         {
-            return this.personContext.People.Where(x=>x.LastName == LastName);
+            return this.personContext.People.Where(x => x.LastName == LastName);
         }
 
         public IEnumerable<Person> GetPeopleByName(string Name)
         {
-           return this.personContext.People.Where(x=>x.Name == Name);
+            return this.personContext.People.Where(x => x.Name == Name);
         }
 
         public void DeletePersonAt(int id)
         {
-            this.personContext.People.Remove( this.personContext.People.ElementAt(id));
+            this.personContext.People.Remove(this.personContext.People.ElementAt(id));
         }
 
         public void AddPeopleToMemDb()
@@ -86,10 +86,18 @@ namespace Services.Services
             IEnumerable<Person> people;
             using (StreamReader file = new StreamReader(loader.GetJsonSource()))
             {
-               people  = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Person>>(file.ReadToEnd());
+                people = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Person>>(file.ReadToEnd());
             }
             personContext.People.AddRange(people);
             personContext.SaveChanges();
+        }
+
+        public void AddPeopleToJson()
+        {
+            using (StreamWriter file = new StreamWriter(loader.GetJsonSource()))
+            {
+                Newtonsoft.Json.JsonConvert.SerializeObject(personContext.People);
+            }
         }
     }
 }

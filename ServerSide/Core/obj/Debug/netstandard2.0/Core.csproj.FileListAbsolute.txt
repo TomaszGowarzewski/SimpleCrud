@@ -6,3 +6,11 @@ C:\Ebooks\SimpleCRUDApplication\ServerSide\Core\obj\Debug\netstandard2.0\Core.As
 C:\Ebooks\SimpleCRUDApplication\ServerSide\Core\obj\Debug\netstandard2.0\Core.AssemblyInfo.cs
 C:\Ebooks\SimpleCRUDApplication\ServerSide\Core\obj\Debug\netstandard2.0\Core.dll
 C:\Ebooks\SimpleCRUDApplication\ServerSide\Core\obj\Debug\netstandard2.0\Core.pdb
+C:\Repo\SimpleCrud\ServerSide\Core\bin\Debug\netstandard2.0\Core.deps.json
+C:\Repo\SimpleCrud\ServerSide\Core\bin\Debug\netstandard2.0\Core.dll
+C:\Repo\SimpleCrud\ServerSide\Core\bin\Debug\netstandard2.0\Core.pdb
+C:\Repo\SimpleCrud\ServerSide\Core\obj\Debug\netstandard2.0\Core.csproj.CoreCompileInputs.cache
+C:\Repo\SimpleCrud\ServerSide\Core\obj\Debug\netstandard2.0\Core.AssemblyInfoInputs.cache
+C:\Repo\SimpleCrud\ServerSide\Core\obj\Debug\netstandard2.0\Core.AssemblyInfo.cs
+C:\Repo\SimpleCrud\ServerSide\Core\obj\Debug\netstandard2.0\Core.dll
+C:\Repo\SimpleCrud\ServerSide\Core\obj\Debug\netstandard2.0\Core.pdb
