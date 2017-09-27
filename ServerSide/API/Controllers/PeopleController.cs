@@ -100,10 +100,6 @@ namespace API.Controllers
             return new JsonResult("Person was deleted successfully");
         }
 
-        [HttpGet("PutPeopleToMemDb")]
-        public void costam()
-        {
-            this.repository.AddPeopleToMemDb();
-        }
+       
     }
 }

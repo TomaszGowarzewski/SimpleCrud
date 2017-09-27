@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   name:string = "";
   email:string = "";
+  static Init(){
+  }
   ngOnInit(): void {
     console.log(localStorage.getItem("CurrentUser"));
 
@@ -20,7 +22,6 @@ export class AppComponent implements OnInit {
       var user = JSON.parse(localStorage.getItem("CurrentUser"));
 
       this.email = user["username"];
-      this.name = "hlasd"
       console.log("jestes zalogowany");
     }
   }

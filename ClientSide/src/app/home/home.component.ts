@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
-import { EmployeesRepositoryService } from '../employees-repository.service';
+import { AuthenticationService } from '../services/authentication/authentication.service';
+import { EmployeesRepositoryService } from '../services/employees-repository/employees-repository.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-home',

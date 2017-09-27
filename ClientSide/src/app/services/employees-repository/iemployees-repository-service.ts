@@ -1,5 +1,5 @@
-import {Employee} from "../../src/app/employee"
 import { Observable } from "rxjs/Observable";
+import { Employee } from "../../employee";
 export interface IEmployeesRepositoryService {
   /**
    * GetAllEmployees
