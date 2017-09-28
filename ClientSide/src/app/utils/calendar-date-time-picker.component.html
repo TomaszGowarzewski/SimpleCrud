@@ -1,0 +1,13 @@
+<md-input-container>
+        <input mdInput [mdDatepicker]="picker" (click)="picker.open()" placeholder="Choose a date">
+        <md-datepicker #picker></md-datepicker>
+      </md-input-container>
+      <div>
+          
+      </div>
+      <br>
+      <a md-raised-button>Increment hour</a><a md-raised-button>Increment Minutes</a>
+      <br>
+      {{Hour}} {{Minute}}
+      <br>
+      <a md-raised-button>Decrement hour</a><a md-raised-button>Decrement Minutes</a>

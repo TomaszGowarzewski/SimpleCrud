@@ -1,3 +1,4 @@
+import { UtilsModule } from './utils/utils.module';
 import { CovalentModule } from './covalent/covalent.module';
 import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +20,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CalendarModule } from 'angular-calendar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 import { NaviComponent } from './navi/navi.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -32,8 +32,7 @@ const appRoutes: Routes = [
   { path: 'employees', component: EmployeesTableComponent},
   { path: 'logout', component: LogoutComponent},
   { path: 'profile', component: ProfileComponent},
-  {path: 'calendar', component: CalendarComponent}
-]
+  {path: 'calendar', component: CalendarComponent}];
 
 @NgModule({
   declarations: [
@@ -44,25 +43,25 @@ const appRoutes: Routes = [
     LogoutComponent,
     ProfileComponent,
     CalendarComponent,
-    CalendarHeaderComponent,
-    NaviComponent,
+    NaviComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     CommonModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     MaterialModule,
     CovalentModule,
     FormsModule,
     HttpModule,
-    CalendarModule.forRoot(),
-    NgbModule,
+    UtilsModule,
+    CalendarModule.forRoot()
   ],
   exports : [],
-  providers: [EmployeesRepositoryService,AuthenticationService, Auth],
+  providers: [EmployeesRepositoryService, AuthenticationService, Auth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

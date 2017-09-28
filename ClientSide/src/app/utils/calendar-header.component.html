@@ -1,0 +1,53 @@
+
+    <div layout="row" layout-align="space-around center">
+      <div >
+        <div class="btn-group">
+          <a md-raised-button
+            mwlCalendarPreviousView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+            Previous
+          </a>
+          <a md-raised-button
+            mwlCalendarToday
+            color="primary"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+            Today
+          </a>
+          <a md-raised-button
+            mwlCalendarNextView
+            [view]="view"
+            [(viewDate)]="viewDate"
+            (viewDateChange)="viewDateChange.next(viewDate)">
+            Next
+          </a>
+        </div>
+      </div>
+      <div >
+        <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+      </div>
+      <div  >
+        <div class="btn-group">
+          <a md-raised-button
+            (click)="viewChange.emit('month')"
+            [class.active]="view === 'month'">
+            Month
+          </a>
+          <a md-raised-button
+          color = "primary"
+            (click)="viewChange.emit('week')"
+            [class.active]="view === 'week'">
+            Week
+          </a>
+          <a md-raised-button
+            (click)="viewChange.emit('day')"
+            [class.active]="view === 'day'">
+            Day
+          </a>
+        </div>
+      </div>
+    </div>
+    <br>
+  `
