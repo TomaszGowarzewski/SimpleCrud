@@ -1,25 +1,16 @@
-<app-mwl-demo-utils-calendar-header
-        [(view)]="view"
-        [(viewDate)]="viewDate">
+<app-mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
 </app-mwl-demo-utils-calendar-header>
-<mwl-calendar-day-view
-[viewDate]="viewDate"
-[events]="events"
-[dayStartHour]="7"
-[dayEndHour]="22">
+<mwl-calendar-day-view [viewDate]="viewDate" [events]="events" [dayStartHour]="7" [dayEndHour]="22">
 </mwl-calendar-day-view>
 <h3>
-        Edit events
-        <a md-raised-button
-        color = "primary"
-          (click)="addEvent()">
+  Edit events
+  <a md-raised-button color="primary" (click)="addEvent()">
           Add new
 </a >
         <div class="clearfix"></div>
       </h3>
       {{label}}
-<table class="table table-bordered">
-        
+<table >
           <thead>
             <tr>
               <th>Title</th>
@@ -53,18 +44,23 @@
                       (change)="refresh.next()">
                   </td>
                   <td>
+                    <!--
                     <mwl-demo-utils-date-time-picker
                       [(ngModel)]="event.start"
                       (ngModelChange)="refresh.next()"
                       placeholder="Not set">
                     </mwl-demo-utils-date-time-picker>
+                  -->
                   </td>
                   <td>
+                      <mwl-demo-utils-date-time-picker></mwl-demo-utils-date-time-picker>
+                    <!--
                     <mwl-demo-utils-date-time-picker
                       [(ngModel)]="event.end"
                       (ngModelChange)="refresh.next()"
                       placeholder="Not set">
                     </mwl-demo-utils-date-time-picker>
+                  -->
                   </td>
                   <td>
                     <button

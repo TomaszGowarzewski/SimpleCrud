@@ -26,6 +26,7 @@ import { NgModule } from '@angular/core';
 
 
 
+
 const appRoutes: Routes = [
   { path: 'todo', component: TodolistComponent },
   { path: 'home', component: HomeComponent },
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     UtilsModule,
-    CalendarModule.forRoot()
+    CalendarModule.forRoot(),
   ],
   exports : [],
   providers: [EmployeesRepositoryService, AuthenticationService, Auth],
