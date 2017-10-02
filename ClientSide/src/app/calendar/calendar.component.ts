@@ -1,9 +1,10 @@
-import { CalendarEventTimesChangedEvent } from 'angular-calendar/dist/esm/src/index.umd';
+import { MOMENT } from 'angular-calendar/dist/esm/src/index.umd';
 import { Subject } from 'rxjs/Rx';
 import { take } from 'rxjs/operator/take';
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { CalendarEvent } from 'angular-calendar';
+import { Component, OnInit } from '@angular/core';
+import { CalendarEvent, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { setHours, setMinutes, startOfDay, endOfDay } from 'date-fns';
+import * as moment from 'moment';
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -22,33 +23,25 @@ const colors: any = {
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class CalendarComponent implements OnInit {
   view = 'day';
   viewDate: Date = new Date();
-  locale = 'pl';
   refresh: Subject<any> = new Subject();
 
   events: CalendarEvent[] = [
-    {
-      title: 'No event end date',
-      start: setHours(setMinutes(new Date(), 0), 8),
-      color: colors.blue
-    },
-    {
-      title: 'No event end date',
-      start: setHours(setMinutes(new Date(), 0), 7),
-      end: setHours(setMinutes(new Date(), 0), 22),
-      color: colors.yellow
-    }
   ];
-  eventTimesChanged({
-    event,
-    newStart,
-    newEnd
-  }: CalendarEventTimesChangedEvent): void {
+
+  eventTimesChanged({event, newStart , newEnd}: CalendarEventTimesChangedEvent): void {
+    console.dir(newStart);
+    console.dir(newEnd);
+    if (!event.status)
+    {
+      newEnd = moment(newEnd).subtract(1,'h').toDate();
+      newStart = moment(newStart).add(7,'h').toDate();
+      event.status = true;
+    }
     event.start = newStart;
     event.end = newEnd;
     this.refresh.next();
@@ -60,15 +53,15 @@ export class CalendarComponent implements OnInit {
       start: startOfDay(new Date()),
       end: endOfDay(new Date()),
       color: colors.red,
-      draggable: true,
+      draggable: false,
       resizable: {
         beforeStart: true,
         afterEnd: true
-      }
+      },
+      status : false
     });
     this.refresh.next();
   }
   ngOnInit() {
-
   }
 }
