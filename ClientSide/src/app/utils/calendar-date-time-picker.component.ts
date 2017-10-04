@@ -21,24 +21,20 @@ import {
   setYear
 } from 'date-fns';
 import { NgbDateStruct, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as moment from 'moment';
-
-export const DATE_TIME_PICKER_CONTROL_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => DateTimePickerComponent),
-  multi: true
-};
 
 @Component({
   selector: 'mwl-demo-utils-date-time-picker',
   templateUrl: 'calendar-date-time-picker.component.html',
   styleUrls: ['calendar-date-time-picker.component.css'],
-  providers: [DATE_TIME_PICKER_CONTROL_VALUE_ACCESSOR],
 })
 export class DateTimePickerComponent implements OnInit {
   @Input() placeholder: string;
-  @Input() data: Date;
+  @Output() dateChanged = new EventEmitter<Date>();
+
+  onSelect(event: any) {
+    this.dateChanged.emit(event);
+}
 
   value: any;
   label: string;
@@ -47,7 +43,6 @@ export class DateTimePickerComponent implements OnInit {
   datePicker: any;
   timeStruct: NgbTimeStruct;
   curentDate: Date;
-
 
   constructor() {
 

@@ -1,3 +1,4 @@
+import { EventComponent } from '../event/event.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material/material.module';
 import { DateTimePickerComponent } from './calendar-date-time-picker.component';

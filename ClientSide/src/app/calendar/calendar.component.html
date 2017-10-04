@@ -44,7 +44,7 @@
                       (change)="refresh.next()">
                   </td>
                   <td>
-                      <mwl-demo-utils-date-time-picker></mwl-demo-utils-date-time-picker>
+                      <mwl-demo-utils-date-time-picker (dateChanged)="event.start = $event;refresh.next()"></mwl-demo-utils-date-time-picker>
                     <!--
                     <mwl-demo-utils-date-time-picker
                       [(ngModel)]="event.start"
@@ -54,7 +54,7 @@
                   -->
                   </td>
                   <td>
-                      <mwl-demo-utils-date-time-picker></mwl-demo-utils-date-time-picker>
+                      <mwl-demo-utils-date-time-picker (dateChanged)="event.end = $event;refresh.next()"></mwl-demo-utils-date-time-picker>
                     <!--
                     <mwl-demo-utils-date-time-picker
                       [(ngModel)]="event.end"

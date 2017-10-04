@@ -23,6 +23,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NaviComponent } from './navi/navi.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { EventComponent } from './event/event.component';
 
 
 
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     LogoutComponent,
     ProfileComponent,
     CalendarComponent,
-    NaviComponent
+    NaviComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,7 @@ const appRoutes: Routes = [
     UtilsModule,
     CalendarModule.forRoot(),
   ],
-  exports : [],
+  exports : [EventComponent],
   providers: [EmployeesRepositoryService, AuthenticationService, Auth],
   bootstrap: [AppComponent]
 })

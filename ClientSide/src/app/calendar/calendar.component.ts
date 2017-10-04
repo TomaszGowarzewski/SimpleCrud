@@ -1,10 +1,10 @@
-import { MOMENT } from 'angular-calendar/dist/esm/src/index.umd';
 import { Subject } from 'rxjs/Rx';
 import { take } from 'rxjs/operator/take';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CalendarEvent, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { setHours, setMinutes, startOfDay, endOfDay } from 'date-fns';
 import * as moment from 'moment';
+
 const colors: any = {
   red: {
     primary: '#ad2121',
@@ -19,9 +19,11 @@ const colors: any = {
     secondary: '#FDF1BA'
   }
 };
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./calendar.component.css'],
 })
 
@@ -30,26 +32,42 @@ export class CalendarComponent implements OnInit {
   viewDate: Date = new Date();
   refresh: Subject<any> = new Subject();
 
+  currentColor : any;
+
   events: CalendarEvent[] = [
   ];
 
-  eventTimesChanged({event, newStart , newEnd}: CalendarEventTimesChangedEvent): void {
+  dateChanged(event:any)
+  {
+    console.dir(event)
+  }
+
+  loguj(event:any)
+  {
+    console.log(event);
+  }
+
+  eventTimesChanged({ event, newStart, newEnd }: CalendarEventTimesChangedEvent): void {
     console.dir(newStart);
     console.dir(newEnd);
-    if (!event.status)
-    {
-      newEnd = moment(newEnd).subtract(1,'h').toDate();
-      newStart = moment(newStart).add(7,'h').toDate();
+    if (!event.status) {
+      newEnd = moment(newEnd).subtract(1, 'h').toDate();
+      newStart = moment(newStart).add(7, 'h').toDate();
       event.status = true;
     }
     event.start = newStart;
     event.end = newEnd;
+    console.dir(this.events);
     this.refresh.next();
   }
+
+
 
   addEvent(): void {
     this.events.push({
       title: 'New event',
+      // start: moment(startOfDay(new Date())).hour(7).toDate() ,
+      // end: moment(endOfDay(new Date())).hour(22).toDate() ,
       start: startOfDay(new Date()),
       end: endOfDay(new Date()),
       color: colors.red,
@@ -58,7 +76,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true
       },
-      status : false
+      status: false
     });
     this.refresh.next();
   }
