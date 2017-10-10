@@ -31,10 +31,7 @@ import * as moment from 'moment';
 export class DateTimePickerComponent implements OnInit {
   @Input() placeholder: string;
   @Output() dateChanged = new EventEmitter<Date>();
-
-  onSelect(event: any) {
-    this.dateChanged.emit(event);
-}
+  @Input('DateValue') DateValue: Date;
 
   value: any;
   label: string;
@@ -42,12 +39,14 @@ export class DateTimePickerComponent implements OnInit {
   dateStruct: NgbDateStruct;
   datePicker: any;
   timeStruct: NgbTimeStruct;
-  curentDate: Date;
+  date : Date;
 
   constructor() {
 
   }
-
+  onSelect(event: any) {
+    this.dateChanged.emit(event);
+}
     public ngOnInit(): void {
       this.en = {
         firstDayOfWeek: 0,

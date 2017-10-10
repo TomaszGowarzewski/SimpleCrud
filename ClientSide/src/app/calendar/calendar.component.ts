@@ -1,6 +1,7 @@
+import { DateTimePickerComponent } from '../utils/calendar-date-time-picker.component';
 import { Subject } from 'rxjs/Rx';
 import { take } from 'rxjs/operator/take';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { CalendarEvent, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { setHours, setMinutes, startOfDay, endOfDay } from 'date-fns';
 import * as moment from 'moment';
@@ -32,6 +33,12 @@ export class CalendarComponent implements OnInit {
   viewDate: Date = new Date();
   refresh: Subject<any> = new Subject();
 
+  @ViewChild('startEvent')
+  private startEvent: DateTimePickerComponent;
+
+  @ViewChild('endEvent')
+  private endEvent: DateTimePickerComponent;
+
   currentColor : any;
 
   events: CalendarEvent[] = [
@@ -48,8 +55,6 @@ export class CalendarComponent implements OnInit {
   }
 
   eventTimesChanged({ event, newStart, newEnd }: CalendarEventTimesChangedEvent): void {
-    console.dir(newStart);
-    console.dir(newEnd);
     if (!event.status) {
       newEnd = moment(newEnd).subtract(1, 'h').toDate();
       newStart = moment(newStart).add(7, 'h').toDate();
@@ -57,7 +62,9 @@ export class CalendarComponent implements OnInit {
     }
     event.start = newStart;
     event.end = newEnd;
-    console.dir(this.events);
+    this.startEvent.date = newStart;
+    this.endEvent.date = newEnd;
+    
     this.refresh.next();
   }
 

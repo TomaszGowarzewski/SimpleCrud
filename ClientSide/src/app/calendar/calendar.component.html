@@ -24,27 +24,27 @@
         
           <tbody>
                 <tr *ngFor="let event of events; let index = index">
-                  <td>
+                  <td width="20%">
                     <input
                       type="text"
                       class="form-control"
                       [(ngModel)]="event.title"
                       (keyup)="refresh.next()">
                   </td>
-                  <td>
+                  <td width="20%">
                     <input
                       type="color"
                       [(ngModel)]="event.color.primary"
                       (change)="refresh.next()">
                   </td>
-                  <td>
+                  <td width="20%">
                     <input
                       type="color"
                       [(ngModel)]="event.color.secondary"
                       (change)="refresh.next()">
                   </td>
-                  <td>
-                      <mwl-demo-utils-date-time-picker (dateChanged)="event.start = $event;refresh.next()"></mwl-demo-utils-date-time-picker>
+                  <td width="20%">
+                      <mwl-demo-utils-date-time-picker    (dateChanged)="event.start = $event;refresh.next()"></mwl-demo-utils-date-time-picker>
                     <!--
                     <mwl-demo-utils-date-time-picker
                       [(ngModel)]="event.start"
@@ -53,7 +53,7 @@
                     </mwl-demo-utils-date-time-picker>
                   -->
                   </td>
-                  <td>
+                  <td width="20%" >
                       <mwl-demo-utils-date-time-picker (dateChanged)="event.end = $event;refresh.next()"></mwl-demo-utils-date-time-picker>
                     <!--
                     <mwl-demo-utils-date-time-picker
@@ -63,7 +63,7 @@
                     </mwl-demo-utils-date-time-picker>
                   -->
                   </td>
-                  <td>
+                  <td width="20%" >
                     <button
                       class="btn btn-danger"
                       (click)="events.splice(index, 1); refresh.next()">
