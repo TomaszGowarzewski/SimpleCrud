@@ -33,14 +33,8 @@ export class CalendarComponent implements OnInit {
   viewDate: Date = new Date();
   refresh: Subject<any> = new Subject();
 
-  @ViewChild('startEvent')
-  private startEvent: DateTimePickerComponent;
-
-  @ViewChild('endEvent')
-  private endEvent: DateTimePickerComponent;
-
   currentColor : any;
-
+ 
   events: CalendarEvent[] = [
   ];
 
@@ -56,27 +50,21 @@ export class CalendarComponent implements OnInit {
 
   eventTimesChanged({ event, newStart, newEnd }: CalendarEventTimesChangedEvent): void {
     if (!event.status) {
-      newEnd = moment(newEnd).subtract(1, 'h').toDate();
-      newStart = moment(newStart).add(7, 'h').toDate();
+     // newEnd = moment(newEnd).subtract(1, 'h').toDate();
+     // newStart = moment(newStart).add(7, 'h').toDate();
       event.status = true;
     }
     event.start = newStart;
     event.end = newEnd;
-    this.startEvent.date = newStart;
-    this.endEvent.date = newEnd;
-    
     this.refresh.next();
   }
-
 
 
   addEvent(): void {
     this.events.push({
       title: 'New event',
-      // start: moment(startOfDay(new Date())).hour(7).toDate() ,
-      // end: moment(endOfDay(new Date())).hour(22).toDate() ,
-      start: startOfDay(new Date()),
-      end: endOfDay(new Date()),
+       start: moment(this.viewDate).hour(7).minute(0).toDate() ,
+       end: moment(this.viewDate).hour(22).minute(0).toDate() ,
       color: colors.red,
       draggable: false,
       resizable: {
@@ -85,6 +73,7 @@ export class CalendarComponent implements OnInit {
       },
       status: false
     });
+    console.log(this.viewDate);
     this.refresh.next();
   }
   ngOnInit() {

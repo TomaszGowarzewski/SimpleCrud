@@ -31,7 +31,7 @@ import * as moment from 'moment';
 export class DateTimePickerComponent implements OnInit {
   @Input() placeholder: string;
   @Output() dateChanged = new EventEmitter<Date>();
-  @Input('DateValue') DateValue: Date;
+  @Input('val') val: string ;
 
   value: any;
   label: string;
@@ -39,8 +39,11 @@ export class DateTimePickerComponent implements OnInit {
   dateStruct: NgbDateStruct;
   datePicker: any;
   timeStruct: NgbTimeStruct;
-  date : Date;
+  date: Date;
 
+  clickniete(){
+    console.log("lasdlad");
+  }
   constructor() {
 
   }
