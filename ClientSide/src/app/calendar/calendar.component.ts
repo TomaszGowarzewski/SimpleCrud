@@ -1,7 +1,7 @@
 import { DateTimePickerComponent } from '../utils/calendar-date-time-picker.component';
 import { Subject } from 'rxjs/Rx';
 import { take } from 'rxjs/operator/take';
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CalendarEvent, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { setHours, setMinutes, startOfDay, endOfDay } from 'date-fns';
 import * as moment from 'moment';
@@ -32,20 +32,20 @@ export class CalendarComponent implements OnInit {
   view = 'day';
   viewDate: Date = new Date();
   refresh: Subject<any> = new Subject();
-
+  @Input() StartsAtError : boolean;
+  @Input() EndsAtError : boolean;
   currentColor : any;
- 
+ currentDayEvents : CalendarEvent[] = [];
   events: CalendarEvent[] = [
   ];
 
-  dateChanged(event:any)
+  RefreshEvents()
   {
-    console.dir(event)
+    this.currentDayEvents = this.events.filter(x=> new Date(x.start).setHours(0,0,0,0) === this.viewDate.setHours(0,0,0,0));
   }
-
-  loguj(event:any)
+  dateChanged(event : boolean)
   {
-    console.log(event);
+    this.RefreshEvents();
   }
 
   eventTimesChanged({ event, newStart, newEnd }: CalendarEventTimesChangedEvent): void {
@@ -59,9 +59,25 @@ export class CalendarComponent implements OnInit {
     this.refresh.next();
   }
 
+  refreshTable()
+  {
+    this.RefreshEvents();
+  }
+  SaveEvent(event : CalendarEvent)
+  {
+    if (new Date(event.start).setHours(0,0,0,0) !== new Date(this.viewDate).setHours(0,0,0,0))
+    {
+      console.log("jest nie halo ");
+    }
+    if (new Date(event.end).setHours(0,0,0,0) !== new Date(this.viewDate).setHours(0,0,0,0))
+    {
+      console.log("jest nie halo ");
+    }
+  }
 
   addEvent(): void {
-    this.events.push({
+
+    var event = {
       title: 'New event',
        start: moment(this.viewDate).hour(7).minute(0).toDate() ,
        end: moment(this.viewDate).hour(22).minute(0).toDate() ,
@@ -72,8 +88,11 @@ export class CalendarComponent implements OnInit {
         afterEnd: true
       },
       status: false
-    });
-    console.log(this.viewDate);
+    }
+    this.events.push(event);
+
+    this.currentDayEvents.push(event);
+
     this.refresh.next();
   }
   ngOnInit() {

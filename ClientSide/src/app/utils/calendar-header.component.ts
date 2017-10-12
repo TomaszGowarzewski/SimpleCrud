@@ -14,4 +14,12 @@ export class CalendarHeaderComponent {
   @Output() viewChange: EventEmitter<string> = new EventEmitter();
 
   @Output() viewDateChange: EventEmitter<Date> = new EventEmitter();
+
+  @Output() dateChanged : EventEmitter<boolean> = new EventEmitter();
+
+ ViewDateChanged(viewDate :any)
+ {
+   this.viewDateChange.next(viewDate);
+   this.dateChanged.emit(true);
+ }
 }

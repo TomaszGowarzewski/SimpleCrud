@@ -1,6 +1,6 @@
-<app-mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
+<app-mwl-demo-utils-calendar-header [(view)]="view" (dateChanged) = "dateChanged($ev)" (viewDateChanged) = "viewDateChange($event)" [(viewDate)]="viewDate">
 </app-mwl-demo-utils-calendar-header>
-<mwl-calendar-day-view [viewDate]="viewDate" [refresh]="refresh" (eventTimesChanged)="eventTimesChanged($event)" [events]="events" [dayStartHour]="7" [dayEndHour]="22">
+<mwl-calendar-day-view [viewDate]="viewDate" [refresh]="refresh" (eventTimesChanged)="eventTimesChanged($event)" [events]="currentDayEvents" [dayStartHour]="7" [dayEndHour]="22">
 </mwl-calendar-day-view>
 <h3>
   Edit events
@@ -16,12 +16,13 @@
               <th>Title</th>
               <th>Starts at</th>
               <th>Ends at</th>
+              <th>Save</th>
               <th>Remove</th>
             </tr>
           </thead>
         
           <tbody>
-                <tr *ngFor="let event of events; let index = index">
+                <tr *ngFor="let event of currentDayEvents; let index = index">
                   <td width="20%">
                     <input
                       type="text"
@@ -29,16 +30,25 @@
                       [(ngModel)]="event.title"
                       (keyup)="refresh.next()">
                   </td>
-                  <td width="20%">
-                      <mwl-demo-utils-date-time-picker [val]="event.start"  (dateChanged)="event.start = $event;refresh.next()"></mwl-demo-utils-date-time-picker>
-                  </td>
-                  <td width="20%" >
-                      <mwl-demo-utils-date-time-picker [val]="event.end" (dateChanged)="event.end = $event;refresh.next()"></mwl-demo-utils-date-time-picker>
-                  </td>
-                  <td width="20%" >
+                 
+                   <td width="30%">
+                      <mwl-demo-utils-date-time-picker [val]="event.start" (dateChanged)="event.start = $event;refresh.next();"></mwl-demo-utils-date-time-picker>
+                </td>
+                <td width="30%" >
+                    <mwl-demo-utils-date-time-picker [val]="event.end" (dateChanged)="event.end = $event;refresh.next();"></mwl-demo-utils-date-time-picker>
+                </td> 
+              
+                  <td width="10%" >
+                      <a md-raised-button
+                        class="btn btn-danger" color="primary"
+                        (click)="SaveEvent(event)">
+                        Save
+                    </a>
+                    </td>
+                  <td width="10%" >
                     <a md-raised-button
                       class="btn btn-danger" color="primary"
-                      (click)="events.splice(index, 1); refresh.next()">
+                      (click)="events.splice(index, 1); refresh.next(); RefreshEvents()">
                       Delete
                   </a>
                   </td>

@@ -6,21 +6,21 @@
             mwlCalendarPreviousView
             [view]="view"
             [(viewDate)]="viewDate"
-            (viewDateChange)="viewDateChange.next(viewDate)">
+            (viewDateChange)="ViewDateChanged(viewDate)">
             Previous
           </a>
           <a md-raised-button
             mwlCalendarToday
             color="primary"
             [(viewDate)]="viewDate"
-            (viewDateChange)="viewDateChange.next(viewDate)">
+            (viewDateChange)="ViewDateChanged(viewDate)">
             Today
           </a>
           <a md-raised-button
             mwlCalendarNextView
             [view]="view"
             [(viewDate)]="viewDate"
-            (viewDateChange)="viewDateChange.next(viewDate)">
+            (viewDateChange)="ViewDateChanged(viewDate)">
             Next
           </a>
         </div>
